@@ -260,6 +260,14 @@ This gives an error:
 Error: Dynamic program error: No default signer found, run "solana-keygen new -o /home/solana/.config/solana/id.json" to create a new one
 ```
 
+The default signer will have to pay for the creation (program transaction fee?)
+So the logic default signer should be the Validator identity?
+
+To change the default signer to the Validator identity
+```
+solana config set --keypair ~/validator-keypair.json
+```
+
 That's it for accounts!
 
 ## Create startup script and system services
