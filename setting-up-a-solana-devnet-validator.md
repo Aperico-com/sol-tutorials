@@ -315,6 +315,31 @@ exec solana-validator \
 
 I won’t go through the flags and options, but you can study them by running `solana-validator --help`. I will say this, though: prepending `solana-validator` with `exec` is necessary to make log rotation work properly. More about that later. Also, to store the minimum amount of ledger you have to set `--limit-ledger-size 50000000`. Press **Ctrl+S** to save the file and **Ctrl+X** to exit Nano.
 
+Start once:
+```
+solana-validator \
+ --entrypoint entrypoint.devnet.solana.com:8001 \
+ --entrypoint entrypoint2.devnet.solana.com:8001 \
+ --entrypoint entrypoint3.devnet.solana.com:8001 \
+ --entrypoint entrypoint4.devnet.solana.com:8001 \
+ --entrypoint entrypoint5.devnet.solana.com:8001 \
+ --known-validator dv1ZAGvdsz5hHLwWXsVnM94hWf1pjbKVau1QVkaMJ92 \
+ --known-validator dv2eQHeP4RFrJZ6UeiZWoc3XTtmtZCUKxxCApCDcRNV \
+ --known-validator dv4ACNkpYPcE3aKmYDqZm9G5EB3J4MRoeE7WNDRBVJB \
+ --known-validator dv3qDFk1DTF36Z62bNvrCXe9sKATA6xvVy6A798xxAS \
+ --expected-genesis-hash EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG \
+ --dynamic-port-range 8000-8010 \
+ --rpc-port 8899 \
+ --only-known-rpc \
+ --wal-recovery-mode skip_any_corrupted_record \
+ --identity ~/validator-keypair.json \
+ --vote-account ~/vote-account-keypair.json \
+ --log ~/log/validator.log \
+ --accounts ~/accounts \
+ --ledger ~/ledger \
+ --limit-ledger-size 50000000
+```
+
 We need to make the script executable, or else it won’t launch:
 ```bash
 chmod +x ~/start-validator.sh
