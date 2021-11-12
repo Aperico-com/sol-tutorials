@@ -251,7 +251,7 @@ solana create-vote-account \
   ~/vote-account-keypair.json ~/validator-keypair.json ~/wallet-keypair.json
 ```
 This gives an error:
-```Error: Dynamic program error: No default signer found, run "solana-keygen new -o /home/solana/.config/solana/id.json" to create a new one```
+```Error: Dynamic program error: No default signer found, run "solana-keygen new -o /home/solana/.config/solana/id.json" to create a new one´´´
 
 That's it for accounts!
 
