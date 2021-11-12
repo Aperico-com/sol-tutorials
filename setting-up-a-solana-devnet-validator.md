@@ -41,10 +41,15 @@ sudo apt update && sudo apt upgrade --assume-yes
 
 Solana does not require root privileges, and It’s considered poor practice to run Solana as “root". It’s also considered good to practice the principle of least privilege. This basically means that no user, process or application should ever have higher privileges than they need to fulfill their intended purpose. I therefore create a new user, “sol", which will be running the validator service as a regular user:
 ```bash
-sudo adduser sol
+sudo useradd -m -d /home/solana/ solana
+passwd solana
 ```
 
 After creating the new user, I use that account as my “base”. By that I mean that I always log in as “sol” initially. If I need to run a command that require root privileges, I switch to an account with those privileges by running `su - username` from the console. Replace “username” with whatever username you assigned during the Ubuntu installation. To get back to the “sol” account I run `exit` in the console. This makes it easy to switch between users without having to log out and back in. Some of the instructions below require root privileges, but I have written where that applies.
+
+```bash
+su - solana
+```
 
 
 ## Create RAM disk and swap spillover (optional)
